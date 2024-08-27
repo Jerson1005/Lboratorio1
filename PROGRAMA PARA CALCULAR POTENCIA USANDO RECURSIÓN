@@ -1,0 +1,21 @@
+#include <stdio.h>
+double potenciaa(double base, int expo) {
+if (expo == 0) {
+return 1;
+} else if (expo > 0) {
+return base * potenciaa(base, expo - 1); //calcula el exponente cuando es negativ
+} else {
+return 1 / potenciaa(base, -expo);
+}
+}
+int main() {
+double base;
+int expo;
+printf("Ingrese la base: ");
+scanf("%lf", &base);
+printf("Ingrese el exponente: ");
+scanf("%d", &expo); //recibe datos de tipo entero y almacena en exponete
+double resultado = potenciaa(base, expo);
+printf("%.2f elevado a %d es igual a %.2f\n", base, expo, resultado);
+return 0;
+}
