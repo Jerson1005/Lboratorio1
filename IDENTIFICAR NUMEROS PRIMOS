@@ -1,0 +1,62 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+// Función para determinar si un número es primo
+bool esPrimo(int numero) {
+if (numero <= 1) return false;
+if (numero <= 3) return true;
+if (numero % 2 == 0 || numero % 3 == 0) return false;
+for (int i = 5; i * i <= numero; i += 6) {
+if (numero % i == 0 || numero % (i + 2) == 0) return false;
+}
+return true;
+}
+// Función para mostrar todos los números primos en una lista
+void mostrarPrimosEnLista(const std::vector<int>& lista) {
+std::cout << "Números primos en la lista:\n";
+for (int num : lista) {
+if (esPrimo(num)) {
+std::cout << num << " ";
+}
+}
+std::cout << std::endl;
+}
+// Función para mostrar todos los números primos en un rango
+void mostrarPrimosEnRango(int inicio, int fin) {
+std::cout << "Números primos en el rango [" << inicio << ", " << fin << "]\n";
+for (int num = inicio; num <= fin; ++num) {
+if (esPrimo(num)) {
+std::cout << num << " ";
+}
+}
+std::cout << std::endl;
+}
+int main() {
+// Parte 1: Verificar si un número es primo
+int numero;
+std::cout << "Ingrese un número para verificar si es primo: ";
+std::cin >> numero;
+if (esPrimo(numero)) {
+std::cout << numero << " es un número primo.\n";
+} else {
+std::cout << numero << " no es un número primo.\n";
+}
+// Parte 2: Identificar números primos en una lista
+int cantidad;
+std::cout << "Ingrese la cantidad de números en la lista: ";
+std::cin >> cantidad;
+std::vector<int> lista(cantidad);
+std::cout << "Ingrese los números de la lista:\n";
+for (int i = 0; i < cantidad; ++i) {
+std::cin >> lista[i];
+}
+mostrarPrimosEnLista(lista);
+// Parte 3: Mostrar números primos en un rango
+int inicio, fin;
+std::cout << "Ingrese el inicio del rango: ";
+std::cin >> inicio;
+std::cout << "Ingrese el fin del rango: ";
+std::cin >> fin;
+mostrarPrimosEnRango(inicio, fin);
+return 0;
+}
