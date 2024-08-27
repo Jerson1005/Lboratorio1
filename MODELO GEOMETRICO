@@ -1,0 +1,82 @@
+#include <iostream>
+#include <cmath>
+#include <string>
+// Clase base para formas geométricas
+class Forma {
+public:
+Forma(const std::string& color) : color(color) {}
+virtual double calcularArea() const = 0;
+virtual double calcularPerimetro() const = 0;
+virtual void mostrarInformacion() const {
+std::cout << "Color: " << color << std::endl;
+}
+protected:
+std::string color;
+};
+// Clase para Rectángulo, derivada de Forma
+class Rectangulo : public Forma {
+public:
+Rectangulo(double ancho, double alto, const std::string& color)
+: Forma(color), ancho(ancho), alto(alto) {}
+double calcularArea() const override {
+return ancho * alto;
+}
+double calcularPerimetro() const override {
+return 2 * (ancho + alto);
+}
+void mostrarInformacion() const override {
+Forma::mostrarInformacion();
+std::cout << "Rectángulo - Ancho: " << ancho << ", Alto: " << alto << std::endl;
+std::cout << "Área: " << calcularArea() << ", Perímetro: " << calcularPerimetro() << std::endl;
+}
+private:
+double ancho;
+double alto;
+};
+// Clase para Cuadrado, derivada de Rectángulo
+class Cuadrado : public Rectangulo {
+public:
+Cuadrado(double lado, const std::string& color)
+: Rectangulo(lado, lado, color) {}
+void mostrarInformacion() const override {
+Forma::mostrarInformacion();
+std::cout << "Cuadrado - Lado: " << Rectangulo::ancho << std::endl;
+std::cout << "Área: " << calcularArea() << ", Perímetro: " << calcularPerimetro() << std::endl;
+}
+};
+// Clase para Triángulo, derivada de Forma
+class Triangulo : public Forma {
+public:
+Triangulo(double lado1, double lado2, double lado3, const std::string& color)
+: Forma(color), lado1(lado1), lado2(lado2), lado3(lado3) {}
+double calcularArea() const override {
+// Usando la fórmula de Herón para el área
+double s = calcularPerimetro() / 2;
+return std::sqrt(s * (s - lado1) * (s - lado2) * (s - lado3));
+}
+double calcularPerimetro() const override {
+return lado1 + lado2 + lado3;
+}
+void mostrarInformacion() const override {
+Forma::mostrarInformacion();
+std::cout << "Triángulo - Lado1: " << lado1 << ", Lado2: " << lado2 << ", Lado3: " << lado3 <<
+std::endl;
+std::cout << "Área: " << calcularArea() << ", Perímetro: " << calcularPerimetro() << std::endl;
+}
+private:
+double lado1;
+double lado2;
+double lado3;
+};
+int main() {
+// Crear y mostrar un rectángulo
+Rectangulo rectangulo(5.0, 3.0, "Rojo");
+rectangulo.mostrarInformacion();
+// Crear y mostrar un cuadrado
+Cuadrado cuadrado(4.0, "Azul");
+cuadrado.mostrarInformacion();
+// Crear y mostrar un triángulo
+Triangulo triangulo(3.0, 4.0, 5.0, "Verde");
+triangulo.mostrarInformacion();
+return 0;
+}
