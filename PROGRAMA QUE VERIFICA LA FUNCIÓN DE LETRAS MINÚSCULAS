@@ -1,0 +1,14 @@
+#include <stdio.h>
+int main() {
+char letra;
+// Solicitar al usuario que ingrese un carácter
+printf("Ingrese un carácter: ");
+scanf("%c", &letra);
+// Verificar si el carácter es una letra minúscula
+if (letra >= 'a' && letra <= 'z') {
+printf("'%c' es una letra minúscula.\n", character);
+} else {
+printf("'%c' no es una letra minúscula.\n", character);
+}
+return 0;
+}
