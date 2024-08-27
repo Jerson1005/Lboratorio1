@@ -1,0 +1,11 @@
+#include <stdio.h>
+int main() {
+// bucle para mostrar los num del 1 al 10
+printf("Numeros del 1 al 10:\n");
+for (int i = 1; i <= 10; i++) {
+printf("%d\n", i); // Imprimir el num
+}
+return 0;
+}
+2. Write a C program that receives and processes grades for the Operating Systems (SO)
+course using structures.
