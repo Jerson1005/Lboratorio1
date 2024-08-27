@@ -1,0 +1,34 @@
+#include <stdio.h>
+int main() {
+int numSerie, primerNum = 0, segNum = 1, siguiente;
+// Solicitar al usuario el número de términos
+printf("Ingrese el número de términos de la serie de Fibonacci: ");
+scanf("%d", &numSerie);
+// Validar la entrada
+if (numSerie <= 0) {
+printf("Por favor, ingrese un número entero positivo.\n");
+} else {
+printf("Serie de Fibonacci:\n");
+// Imprimir los términos de la serie
+for (int i = 1; i <= numSerie; i++) {
+if (i == 1) {
+printf("%d, ", primerNum); // Imprimir el primer término
+continue;
+}
+if (i == 2) {
+printf("%d, ", segNum); // Imprimir el segundo término
+continue;
+}
+siguiente = first + segNum; // Calcular el siguiente número en la serie
+primerNum = segNum; // Actualizar el primer número
+segNum = siguiente; // Actualizar el segundo número
+printf("%d", next); // Imprimir el siguiente número
+// Imprimir una coma después de cada número, excepto el último
+if (i < numSerie) {
+printf(", ");
+}
+}
+printf("\n"); // Nueva línea al final
+}
+return 0;
+}
