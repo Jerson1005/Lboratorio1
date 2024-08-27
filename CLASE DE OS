@@ -1,0 +1,56 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define false 0
+#define true 1 // Option 1
+int main()
+{
+int x;
+float nota [10], promedio = 0;
+char nom [10][50];
+float mayor = -1 , menor = -1, total;
+mayor= nota[0];
+for(x=0;x<10;x++){
+printf("Ingrese nombre de alumno n° %i: " , x+1);
+fgets(nom[x], 100, stdin);
+while(getchar()!='\n');
+}
+printf("\n");
+for(x=0;x<10;x++){
+do{
+printf("Ingrese nota de %s: ", nom[x]);
+float nota_temp = 0;
+scanf("%f" , &nota_temp);
+while(getchar()!='\n');
+if (nota[x] >= 0 || nota[x] <= 70){
+nota[x] = nota_temp;
+break;
+} else{
+printf("Nota mal ingresada, vuelva a introducir\n");
+}
+}while(true);
+}
+for(int i = 0; i < 10; i++){
+printf("%f \n", nota[i]);
+}
+mayor= nota[0];
+for (x=0; x<10; x++){
+if (nota[x]> mayor){
+mayor=nota[x];
+}
+}
+menor = mayor;
+for (x=0; x<10; x++){
+promedio+=nota[x];
+}
+for (int i = 0; i < 10; i++){
+if (nota[i] < menor){
+menor = nota[i];
+}
+}
+printf("\nEl mayor es %f\n\n", mayor);
+printf("El menor es %f\n\n", menor);
+promedio = promedio/10.0;
+printf("El Promedio es: %.2f\n\n", promedio);
+system("PAUSE");
+return 1;
+}
