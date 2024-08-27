@@ -1,0 +1,15 @@
+#include <stdio.h>
+int main() {
+// Casting implicito
+int intNum = 10;
+float floatNum = 5.5;
+//intNum pasa por una conversión implícita a flotante
+float resultImplicit = intNum + floatNum;
+printf("Resultado de conversión implícita: %f\n", resultImplicit);
+// Casting explícito
+double doubleNum = 7.89;
+// doubleNum pasa por una conversión explícita a entero
+int resultExplicit = (int)doubleNum;
+printf("Resultado de conversión explicita %d\n", resultExplicit);
+return 0;
+}
