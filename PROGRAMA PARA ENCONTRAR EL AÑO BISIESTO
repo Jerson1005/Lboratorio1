@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main() {
+int year;
+printf("Introduce un año: ");
+scanf("%d", &year);
+// el año es bisiesto si es divisible por 4 y no es divisible por 100 o si es divisible entre 400
+if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+printf("%d es un año bisiesto.\n", year);
+} else {
+printf("%d no es un año bisiesto.\n", year);
+}
+return 0;
+}
